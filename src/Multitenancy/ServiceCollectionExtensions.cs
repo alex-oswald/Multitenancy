@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using OswaldTechnologies.Multitenancy;
 
-namespace OswaldTechnologies.Multitenancy
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
