@@ -1,0 +1,37 @@
+trigger:
+  branches:
+    include:
+    - master
+  tags:
+    include: ['*']
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: restore
+    projects: '$(solution)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: build
+    arguments: '--configuration $(buildConfiguration)'
+    projects: '$(solution)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*[Tt]ests/*.csproj'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: '$(System.DefaultWorkingDirectory)'
+    artifactName: Build_Package
