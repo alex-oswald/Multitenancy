@@ -7,6 +7,7 @@
     <Authors>Alex Oswald</Authors>
     <Product>Multitenancy</Product>
     <Company>Oswald Technologies, LLC</Company>
+    <Version>1.0.0-beta1</Version>
   </PropertyGroup>
 
   <ItemGroup>
