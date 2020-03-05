@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Multitenancy\Multitenancy.csproj" />
+    <ProjectReference Include="..\..\src\Multitenancy\Multitenancy.csproj" />
   </ItemGroup>
 
 </Project>
