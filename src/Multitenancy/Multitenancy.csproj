@@ -18,6 +18,7 @@
 	<PublishRepositoryUrl>true</PublishRepositoryUrl>
 	<IncludeSymbols>true</IncludeSymbols>
     <OutputType>Library</OutputType>
+	<IsPackable>true</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
