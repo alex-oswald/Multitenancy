@@ -1,4 +1,4 @@
-﻿using OswaldTechnologies.Multitenancy;
+﻿using Multitenancy;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

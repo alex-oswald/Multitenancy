@@ -1,11 +1,11 @@
-﻿namespace OswaldTechnologies.Multitenancy
+﻿namespace Multitenancy
 {
-    public class Tenant
+    public record Tenant
     {
-        public string Name { get; set; }
+        public string Name { get; init; } = "";
 
-        public string Hostname { get; set; }
+        public string Hostname { get; init; } = "";
 
-        public string ConnectionString { get; set; }
+        public string ConnectionString { get; init; } = "";
     }
 }

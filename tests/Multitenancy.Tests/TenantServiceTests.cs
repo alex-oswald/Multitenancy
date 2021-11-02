@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using Xunit;
 
-namespace OswaldTechnologies.Multitenancy.Tests
+namespace Multitenancy.Tests
 {
     public class TenantServiceTests
     {
@@ -24,20 +24,20 @@ namespace OswaldTechnologies.Multitenancy.Tests
                 },
                 {
                   ""Name"": ""Test Tenant"",
-                  ""Hostname"": ""test.tiredispatcher.com"",
+                  ""Hostname"": ""test.example.com"",
                   ""ConnectionString"": ""conn2""
                 }
               ]
             }";
 
         private readonly Dictionary<string, string> _collection =
-            new Dictionary<string, string>
+            new()
             {
                 { "Tenants:0:Name", "Localhost Tenant" },
                 { "Tenants:0:Hostname", "localhost:44331" },
                 { "Tenants:0:ConnectionString", "conn1" },
                 { "Tenants:1:Name", "Test Tenant" },
-                { "Tenants:1:Hostname", "test.tiredispatcher.com" },
+                { "Tenants:1:Hostname", "test.example.com" },
                 { "Tenants:1:ConnectionString", "conn2" },
             };
 
@@ -85,7 +85,7 @@ namespace OswaldTechnologies.Multitenancy.Tests
 
         [Theory]
         [InlineData("localhost:44331", "Localhost Tenant")]
-        [InlineData("test.tiredispatcher.com", "Test Tenant")]
+        [InlineData("test.example.com", "Test Tenant")]
         public void Get_current_tenants_name(string hostString, string tenantName)
         {
             var host = new HostString(hostString);

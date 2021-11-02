@@ -1,20 +1,72 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# ASP.NET Core Multitenancy
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+This library lets you add multitenancy to an ASP.Core application. You add its services to the DI container.
+It adds a `ITenantService` that provides two methods. `GetCurrentTenant` fetches the current tenant configuration
+based on the current hostname. `GetTenantList` returns a list of all tenants in configuration. You are able to use
+this service in other classes to change your database connection string.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## How to use
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Install the library.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Add the tenant configuration to `appsettings.json`.
+
+```json
+{
+    "Tenants": [
+        {
+            "Name": "Localhost Tenant",
+            "Hostname": "localhost:44331",
+            "ConnectionString": "conn1"
+        },
+        {
+            "Name": "Test Tenant",
+            "Hostname": "test.example.com",
+            "ConnectionString": "conn2"
+        }
+    ]
+}
+```
+
+Add the Multitenancy services to the dependency injection container.
+
+```csharp
+using Multitenancy;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMultitenancy();
+}
+```
+
+Inject into `DbContext` to specify the database connection string for the current tenant.
+
+
+```csharp
+public class ExampleContext : IdentityDbContext<ApplicationUser>
+{
+    private readonly ITenantService _tenantService;
+
+    public ExampleContext(
+        DbContextOptions<ExampleContext> options,
+        ITenantService tenantService)
+        : base(options)
+    {
+        _tenantService = tenantService;
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+
+        if (!optionsBuilder.IsConfigured)
+        {
+            if (_tenantService == null)
+            {
+                throw new ArgumentNullException(nameof(_tenantService));
+            }
+            optionsBuilder.UseSqlServer(_tenantService.GetCurrentTenant().ConnectionString);
+        }
+    }
+}
+```

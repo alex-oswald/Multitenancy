@@ -2,14 +2,29 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>OswaldTechnologies.Multitenancy</AssemblyName>
-    <RootNamespace>OswaldTechnologies.Multitenancy</RootNamespace>
-    <Authors>Alex Oswald</Authors>
-    <Product>Multitenancy</Product>
-    <Company>Oswald Technologies, LLC</Company>
-    <Version>2.0.0</Version>
-    <Description>Add multitenancy support using configuration and the TenantService to get connection strings.</Description>
+	<Nullable>enable</Nullable>
+	<PackageId>Multitenancy</PackageId>
+	<Version>3.0.0</Version>
+	<Authors>Alex Oswald</Authors>
+	<Description>Add multitenancy support using configuration and the TenantService to get connection strings.</Description>
+	<RepositoryUrl>https://github.com/alex-oswald/Multitenancy</RepositoryUrl>
+	<PackageProjectUrl>https://github.com/alex-oswald/Multitenancy</PackageProjectUrl>
+	<RepositoryType>git</RepositoryType>
+	<AssemblyName>Multitenancy</AssemblyName>
+	<RootNamespace>Multitenancy</RootNamespace>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	<IncludeSymbols>true</IncludeSymbols>
     <OutputType>Library</OutputType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

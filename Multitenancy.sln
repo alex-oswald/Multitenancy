@@ -3,9 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenancy", "src\Multitenancy\Multitenancy.csproj", "{D6DE42AE-AD24-4E66-82C2-AA1416854923}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitenancy", "src\Multitenancy\Multitenancy.csproj", "{D6DE42AE-AD24-4E66-82C2-AA1416854923}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenancy.Tests", "tests\Multitenancy.Tests\Multitenancy.Tests.csproj", "{1C183F81-B466-4C0E-86A4-9B01A8BDB173}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitenancy.Tests", "tests\Multitenancy.Tests\Multitenancy.Tests.csproj", "{1C183F81-B466-4C0E-86A4-9B01A8BDB173}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{91B224C2-3841-42C3-9FA2-EF6C1491F404}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		azure-pipelines.yml = azure-pipelines.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
