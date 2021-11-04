@@ -1,5 +1,9 @@
 # ASP.NET Core Multitenancy
 
+[![Nuget](https://img.shields.io/nuget/v/OswaldTechnologies.Multitenancy)](https://www.nuget.org/packages/OswaldTechnologies.Multitenancy/)
+![Nuget](https://img.shields.io/nuget/dt/OswaldTechnologies.Multitenancy)
+
+
 This library lets you add multitenancy to an ASP.Core application. You add its services to the DI container.
 It adds a `ITenantService` that provides two methods. `GetCurrentTenant` fetches the current tenant configuration
 based on the current hostname. `GetTenantList` returns a list of all tenants in configuration. You are able to use
