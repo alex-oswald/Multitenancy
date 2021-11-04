@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using Xunit;
 
-namespace Multitenancy.Tests
+namespace OswaldTechnologies.Multitenancy.Tests
 {
     public class TenantServiceTests
     {

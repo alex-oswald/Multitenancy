@@ -1,4 +1,4 @@
-﻿namespace Multitenancy
+﻿namespace OswaldTechnologies.Multitenancy
 {
     public record Tenant
     {

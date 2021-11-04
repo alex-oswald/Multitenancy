@@ -3,15 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
 	<Nullable>enable</Nullable>
-	<PackageId>Multitenancy</PackageId>
+	<PackageId>OswaldTechnologies.Multitenancy</PackageId>
 	<Version>1.0.0</Version>
 	<Authors>Alex Oswald</Authors>
 	<Description>Add multitenancy support using configuration and the TenantService to get connection strings.</Description>
 	<RepositoryUrl>https://github.com/alex-oswald/Multitenancy</RepositoryUrl>
 	<PackageProjectUrl>https://github.com/alex-oswald/Multitenancy</PackageProjectUrl>
 	<RepositoryType>git</RepositoryType>
-	<AssemblyName>Multitenancy</AssemblyName>
-	<RootNamespace>Multitenancy</RootNamespace>
+	<AssemblyName>OswaldTechnologies.Multitenancy</AssemblyName>
+	<RootNamespace>OswaldTechnologies.Multitenancy</RootNamespace>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>

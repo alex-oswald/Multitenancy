@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Multitenancy
+namespace OswaldTechnologies.Multitenancy
 {
     public class TenantService : ITenantService
     {
@@ -27,7 +27,7 @@ namespace Multitenancy
         /// Gets the current tenant from the host.
         /// </summary>
         /// <returns>The tenant.</returns>
-        public Tenant GetCurrentTenant()
+        public virtual Tenant GetCurrentTenant()
         {
             Tenant tenant;
             var host = _httpContext.HttpContext.Request.Host;
@@ -46,7 +46,7 @@ namespace Multitenancy
         /// Gets a list of tenants in configuration.
         /// </summary>
         /// <returns>The list of tenants.</returns>
-        public List<Tenant> GetTenantList()
+        public virtual List<Tenant> GetTenantList()
         {
             var tenants = new List<Tenant>();
 

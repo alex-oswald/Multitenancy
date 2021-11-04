@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Multitenancy
+namespace OswaldTechnologies.Multitenancy
 {
     public interface ITenantService
     {
