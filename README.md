@@ -47,13 +47,11 @@ Inject into `DbContext` to specify the database connection string for the curren
 
 
 ```csharp
-public class ExampleContext : IdentityDbContext<ApplicationUser>
+public class ExampleContext : DbContext
 {
     private readonly ITenantService _tenantService;
 
-    public ExampleContext(
-        DbContextOptions<ExampleContext> options,
-        ITenantService tenantService)
+    public ExampleContext(DbContextOptions<ExampleContext> options, ITenantService tenantService)
         : base(options)
     {
         _tenantService = tenantService;
@@ -65,10 +63,6 @@ public class ExampleContext : IdentityDbContext<ApplicationUser>
 
         if (!optionsBuilder.IsConfigured)
         {
-            if (_tenantService == null)
-            {
-                throw new ArgumentNullException(nameof(_tenantService));
-            }
             optionsBuilder.UseSqlServer(_tenantService.GetCurrentTenant().ConnectionString);
         }
     }
