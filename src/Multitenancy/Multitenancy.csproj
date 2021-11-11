@@ -12,14 +12,18 @@
 	<RootNamespace>OswaldTechnologies.Multitenancy</RootNamespace>
 	<AssemblyName>OswaldTechnologies.Multitenancy</AssemblyName>
 	<PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    	<IncludeSymbols>true</IncludeSymbols>
+    	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	<PackageProjectUrl>https://github.com/alex-oswald/Multitenancy</PackageProjectUrl>
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <OutputType>Library</OutputType>
+    	<OutputType>Library</OutputType>
 	<IsPackable>true</IsPackable>
   </PropertyGroup>
+	 
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0">
