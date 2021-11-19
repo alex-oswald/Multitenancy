@@ -1,13 +1,16 @@
-# ASP.NET Core Multitenancy
+# ASP.NET Multitenancy
 
 [![Nuget](https://img.shields.io/nuget/v/OswaldTechnologies.Multitenancy)](https://www.nuget.org/packages/OswaldTechnologies.Multitenancy/)
-![Nuget](https://img.shields.io/nuget/dt/OswaldTechnologies.Multitenancy)
+[![Nuget](https://img.shields.io/nuget/dt/OswaldTechnologies.Multitenancy)](https://img.shields.io/nuget/dt/OswaldTechnologies.Multitenancy)
 
 
-This library lets you add multitenancy to an ASP.Core application. You add its services to the DI container.
-It adds a `ITenantService` that provides two methods. `GetCurrentTenant` fetches the current tenant configuration
-based on the current hostname. `GetTenantList` returns a list of all tenants in configuration. You are able to use
-this service in other classes to change your database connection string.
+This library lets you add multitenancy to an ASP.NET application using the requests hostname. It provides a `ITenantService`
+that contains two methods.
+
+- `GetCurrentTenant` fetches the current tenant configuration based on the current hostname.
+- `GetTenantList` returns a list of all tenants in configuration.
+
+Use this service to fetch a specific tenants connection string.
 
 ## How to use
 
@@ -43,8 +46,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Inject into `DbContext` to specify the database connection string for the current tenant.
-
+Inject into `DbContext` or another class to specify the database connection string for the current tenant.
 
 ```csharp
 public class ExampleContext : DbContext
